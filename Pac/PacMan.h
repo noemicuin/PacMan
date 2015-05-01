@@ -41,15 +41,31 @@ class PacMan
         //Member Functions
         void moveUp();
         // Summary: If the user presses ' ' then they will move up.
-        // Pre-Condition: Check that where the tile is already
+        // Pre-Condition: Make sure that the move is not out of bounds.
         void moveDown();
+        // Summary:
+        // Pre-Condition:
         void moveLeft();
+        // Summary:
+        // Pre-Condition:
         void moveRight();
-        bool isInsideParameters();
+        // Summary:
+        // PreCondition:
         bool isAttacked();
+        // Summary: If pacman gets attacked we will lower the 3 lifes.
+        // pre Condition: If pacman gets attacked and he has 1 life we will call the hasLost() function.
         void eatEnemy();
+        // Summary: Pacman will be able to eat the ghost if they are the color blue.
+        // pre-Condition: If pacman gets close to a blue ghost the ghost will go back to the center.
+        //                but if the ghost is not blue then we will remove a life and if pacman has no more lifes
+        //                we call the has lost function.
+
         bool hasWon();
+        // Summary: PacMan wins if he eats all the dots.
+        // Pre Condition: If Pacman wins we will call the didWin function!
         bool hasLost();
+        // Summary:
+        // PreConditions:
         void isADot();
         bool isDot();
         void didWin();
