@@ -21,6 +21,7 @@ class PacMan
         int colY; //Col we are currently at.
         int life; //How many lifes we have.
         int points; // How many points they get.
+        bool hasLost;
     public:
         PacMan();
         PacMan(char pacman, char curr_tile, int rowX, int rowY, int life, int points);
@@ -52,7 +53,7 @@ class PacMan
         // Summary:
         // PreCondition:
         bool isAttacked();
-        // Summary: If pacman gets attacked we will lower the 3 lifes.
+        // Summary: If pacman gets attacked we will lower the life variable.
         // pre Condition: If pacman gets attacked and he has 1 life we will call the hasLost() function.
         void eatEnemy();
         // Summary: Pacman will be able to eat the ghost if they are the color blue.
@@ -63,13 +64,10 @@ class PacMan
         bool hasWon();
         // Summary: PacMan wins if he eats all the dots.
         // Pre Condition: If Pacman wins we will call the didWin function!
-        bool hasLost();
-        // Summary:
-        // PreConditions:
-        void isADot();
         bool isDot();
-        void didWin();
-
+        // Summary: If the character has a . then it is a dot and will increase there points.
+        // PreCondition: Before it moves it will check if the next movement contains a dot if it does then
+        //               the point variable will increase.
 
 
 

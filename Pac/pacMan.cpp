@@ -55,12 +55,12 @@ void PacMan::moveUp()
 }
 void PacMan::moveDown()
 {
-    if(colY + 1 <= HOW BiG IS THE BOARD)
+    if(colY + 1 <= HOW BiG IS THE BOARD && colY != '#')
 }
 
 void PacMan::moveLeft()
 {
-    if(rowX + 1 != THE END OF THE ROW)
+    if(rowX + 1 != THE END OF THE ROW && rowX != '#')
     {
         rowX++
     }
@@ -94,6 +94,8 @@ void PacMan::eatEnemy()
 }
 bool PacMan::hasLost()
 {
+    if(life == 0)
+        hasLost() == false;
 
 }
 bool PacMan::isDot()
