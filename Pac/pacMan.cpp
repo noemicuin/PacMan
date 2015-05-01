@@ -44,7 +44,7 @@ void PacMan::setPoints(int points)
 }
 void PacMan::moveUp()
 {
-    if(colY - 1 >= 0)
+    if(colY - 1 >= 0 && colY - 1 != '#')
     {
         colY--;
     }
@@ -59,11 +59,44 @@ void PacMan::moveDown()
 }
 
 void PacMan::moveLeft()
+{
+    if(rowX + 1 != THE END OF THE ROW)
+    {
+        rowX++
+    }
+    else
+    {
+        cout << "Out of Bounds" << endl;
+    }
+}
 void PacMan::moveRight()
-bool PacMan::isInsideParameters()
+{
+    if(rowX - 1 >= 0)
+    {
+        rowX--;
+    }
+    else
+    {
+        cout << ""
+    }
+}
 bool PacMan::isAttacked()
+{
+    if(rowX - 1 != '#' && rowX - 1 == GHOST);
+        isAttacked = true;
+    else
+        isAttacked = false;
+
+}
 void PacMan::eatEnemy()
-bool PacMan::hasWon()
+{
+
+}
 bool PacMan::hasLost()
-void PacMan::isADot()
+{
+
+}
 bool PacMan::isDot()
+{
+
+}
