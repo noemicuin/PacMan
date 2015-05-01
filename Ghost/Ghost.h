@@ -25,8 +25,7 @@ class Ghost
         //Summary: This function will be changing the position of a ghost object in the game
         //postconditions: The ghost objects x and y coordinates will have changed
         //
-        bool canLeaveBox() const {return canLeaveroom;}
-
+        bool canLeaveBox() const {return canLeaveRoom;}
         void MoveLeft();
 
         void MoveRight();

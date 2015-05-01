@@ -22,4 +22,40 @@ void Ghost::setPosition(int x_coordinate, int y_coordinate)
     this->y_coordinate = y_coordinate;
 }
 
+void Ghost::MoveDown()
+{
+    if(y_coordinate + 1 != wall)
+    {
+        y_coordinate++;
+    }
+    setPosition(x_coordinate, y_coordinate);
+
+}
+
+void Ghost::MoveUp()
+{
+    if(y_coordinate - 1 != wall)
+    {
+        y_coordinate--;
+    }
+
+}
+
+void Ghost::MoveLeft()
+{
+    if(x_coordinate - 1 != wall)
+    {
+        x_coordinate--;
+    }
+}
+
+void Ghost::MoveRight()
+{
+    if(x_coordinate + 1 != wall)
+    {
+        x_coordinate++;
+    }
+}
+
+
 
