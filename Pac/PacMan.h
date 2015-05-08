@@ -9,17 +9,18 @@
 //
 //*********************************************************************
 #include <iostream>
+#include "Ghost.h"
 using namespace std;
 
 
 class PacMan
 {
     private:
+        Ghost ghost;
         char pacman; //This character will be how we distinguish paacman..
         int rowX; //Row we are at.
         int colY; //Col we are currently at.
-        int life; //How many lifes we have.
-        int points; // How many points they get.
+        int pellets;
         bool hasLost;
     public:
         PacMan();
@@ -29,8 +30,7 @@ class PacMan
         //char getCurrTile()const{return curr_tile;}
         int getRowX()const{return rowX;}
         int getColY()const{return colY;}
-        int getLife()const{return life;}
-        int getPoints()const{return points;}
+
         //Setters
         void setPacman(char pacman);
         //void setCurrTile(char curr_tile);
@@ -51,23 +51,25 @@ class PacMan
         void moveRight();
         // Summary:
         // PreCondition:
-        bool isAttacked(Ghost ghost);
+        bool isAttacked();
         // Summary: If pacman gets attacked we will lower the life variable.
         // pre Condition: If pacman gets attacked and he has 1 life we will call the hasLost() function.
         void eatEnemy();
         // Summary: Pacman will be able to eat the ghost if they are the color blue.
         // pre-Condition: If pacman gets close to a blue ghost the ghost will go back to the center.
         //                but if the ghost is not blue then we will remove a life and if pacman has no more lifes
-        //                we call the has lost function.
+        //          we call the has lost function.
+        bool hasLostGame();
         bool hasWon();
         // Summary: PacMan wins if he eats all the dots.
         // Pre Condition: If Pacman wins we will call the didWin function!
-        bool isDot();
+        bool isDot(Board board);
         // Summary: If the character has a . then it is a dot and will increase there points.
         // PreCondition: Before it moves it will check if the next movement contains a dot if it does then
         //               the point variable will increase.
 
-
+        int getXPosition() const {return rowX;}
+        int getYPosition() const {return colY;}
 
 };
 #endif // PACMAN_H_INCLUDED

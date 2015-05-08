@@ -15,9 +15,10 @@ PacMan::PacMan()
 {
     pacman = 'c';
     rowX = 0;
-    rowY = 0;
-    life = 0;
-    points = 0;
+    colY = 0;
+    pellets = 0;
+
+
 }
 //Setters *******************************************************************************************************************
 void PacMan::setPacman(char pacman)
@@ -32,14 +33,7 @@ void PacMan::setColY(int colY)
 {
     this->colY = colY;
 }
-void PacMan::setLife(int life)
-{
-    this->life = life;
-}
-void PacMan::setPoints(int points)
-{
-    this->points = points;
-}
+
 //****************************************************************************************************************************
 void PacMan::moveUp()
 {
@@ -60,7 +54,7 @@ void PacMan::moveLeft()
 {
     if(rowX + 1 != 31 && rowX != '#')
     {
-        rowX++
+        rowX++;
     }
 }
 void PacMan::moveRight()
@@ -70,37 +64,33 @@ void PacMan::moveRight()
         rowX--;
     }
 }
-bool PacMan::isAttacked(Ghost ghost)
+bool PacMan::isAttacked()
 {
-    if(rowX - 1 != '#' && rowX - 1 == ghost.getX())
-        isAttacked = true;
-        lifes--;
-        if(lifes <= 0)
-        {
-            hasLost(true);
-        }
-    else if(rowX + 1 != '#' && rowX - 1 == ghost.getX())//GET THE GHOST POSITION
-        isAttacked = true;
-    else if(colY + 1 != '#' && colY + 1 == ghost.getX())
-        isAttacked = true;
-    else if(colY - 1 != '#' && colY - 1 == ghost.getx())
-        isAttacked = true;
-    else
-        isAttacked = false;
+    if(rowX == ghost.getXPosition() && colY == ghost.getYPosition())
+    {
+       // Board::life--;  //////////////////////////////////////////////////////////////////
+        return true;
+    }
+    return false;
 
 }
-bool PacMan::hasLost()
+
+bool PacMan::hasWon()
 {
-    if(life == 0)
-        hasLost() == true;
+    //if(Board::life > 0 && pellets == 245)
+
+}
+bool PacMan::hasLostGame()
+{
+   // if(life == 0)
+        hasLost == true;
     cout << "YOU LOST" << endl;
 
 }
 bool PacMan::isDot(Board b)
 {
-    if(b.getPosition(rowX, rowY) == '.')
+    if(b.getPosition(rowX, colY) == '.')
     {
-        points++;
+        pellets++;
     }
-
 }
