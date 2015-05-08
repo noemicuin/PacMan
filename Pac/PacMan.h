@@ -16,60 +16,52 @@ using namespace std;
 class PacMan
 {
     private:
-        Ghost ghost;
-        char pacman; //This character will be how we distinguish paacman..
-        int rowX; //Row we are at.
-        int colY; //Col we are currently at.
+        //Ghost ghost;
+        char pacman;
+        int rowX;
+        int colY;
         int pellets;
         bool hasLost;
     public:
+        //Constructors:
         PacMan();
         PacMan(char pacman, char curr_tile, int rowX, int rowY, int life, int points);
-        //Accessors
+
+        //Accessors:
         char getPacman()const{return pacman;}
-        //char getCurrTile()const{return curr_tile;}
         int getRowX()const{return rowX;}
         int getColY()const{return colY;}
 
-        //Setters
+        //Setters:
         void setPacman(char pacman);
-        //void setCurrTile(char curr_tile);
         void setRowX(int rowX);
         void setColY(int colY);
-        void setLife(int life);
-        void setPoints(int points);
+
         //Member Functions
         void moveUp();
-        // Summary: If the user presses ' ' then they will move up.
+        // Summary: If the user presses up Key then they will move up.
         // Pre-Condition: Make sure that the move is not out of bounds.
         void moveDown();
-        // Summary:
-        // Pre-Condition:
+        // Summary: If the user presses the down Key pac man will move down.
+        // Pre-Condition: Check that it is inside the boundaries and that there is no obstacles, '#'.
         void moveLeft();
-        // Summary:
-        // Pre-Condition:
+        // Summary: If the user presses the left key pac man will move left.
+        // Pre-Condition: Check that it's inside boundaries and that there is no obstacles '#'
         void moveRight();
-        // Summary:
-        // PreCondition:
+        // Summary: If the user presses the right key pac man will move right.
+        // PreCondition: Checck that it is inside the parameters and nothing blocking the way.
         bool isAttacked();
-        // Summary: If pacman gets attacked we will lower the life variable.
-        // pre Condition: If pacman gets attacked and he has 1 life we will call the hasLost() function.
-        void eatEnemy();
-        // Summary: Pacman will be able to eat the ghost if they are the color blue.
-        // pre-Condition: If pacman gets close to a blue ghost the ghost will go back to the center.
-        //                but if the ghost is not blue then we will remove a life and if pacman has no more lifes
-        //          we call the has lost function.
+        // Summary: If pac man gets attacked we will lower the life variable.
+        // Pre-Condition: If pac man gets attacked and he has 1 life we will call the hasLost() function.
         bool hasLostGame();
+        // Summary: This function will return false if Pac man lost or true if pac man Won.
+        // Pre-Condition: We have to check that the life = 0 and that pacman did not get all the dots.
         bool hasWon();
-        // Summary: PacMan wins if he eats all the dots.
-        // Pre Condition: If Pacman wins we will call the didWin function!
-        bool isDot(Board board);
+        // Summary: Pac Man wins if he eats all the dots and has more than 0 life.
+        // Pre-Condition: Check that all the dots are gone and check that pac man still has at least 1 life left.
+        void. isDot(Board board);
         // Summary: If the character has a . then it is a dot and will increase there points.
-        // PreCondition: Before it moves it will check if the next movement contains a dot if it does then
-        //               the point variable will increase.
-
-        int getXPosition() const {return rowX;}
-        int getYPosition() const {return colY;}
-
+        // Pre-Condition: Before it moves it will check if the next movement contains a dot if it does then
+        //                the point variable will increase.
 };
 #endif // PACMAN_H_INCLUDED

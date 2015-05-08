@@ -68,7 +68,7 @@ bool PacMan::isAttacked()
 {
     if(rowX == ghost.getXPosition() && colY == ghost.getYPosition())
     {
-       // Board::life--;  //////////////////////////////////////////////////////////////////
+        Board::life--;  //////////////////////////////////////////////////////////////////
         return true;
     }
     return false;
@@ -77,20 +77,27 @@ bool PacMan::isAttacked()
 
 bool PacMan::hasWon()
 {
-    //if(Board::life > 0 && pellets == 245)
+    if(Board::life > 0 && pellets == 238)
+        return true;
+    else
+        return false;
 
 }
 bool PacMan::hasLostGame()
 {
-   // if(life == 0)
-        hasLost == true;
-    cout << "YOU LOST" << endl;
+   if(Board::life == 0 && pellets != 238)
+        return true;
+   else
+        return false;
 
 }
-bool PacMan::isDot(Board b)
+void PacMan::isDot(Board b)
 {
     if(b.getPosition(rowX, colY) == '.')
     {
         pellets++;
+        b.setPosition(rowX, colY);
+        //After grabbing the DOT we will put the current position into an empty char.
+        //Function comes from BOARD.
     }
 }
