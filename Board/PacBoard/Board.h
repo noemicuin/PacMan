@@ -14,24 +14,22 @@
 // *******************************************************
 
 #include "Board.h"
+#include <iostream>
+using namespace std;
 
 class Board
 {
     private:
-        char Layout1[18][32];
-        char Layout2[18][32];
-        char Layout3[18][32];
+        char Layout1[22][31];
         int score;
     public:
         Board();
+        char getPosition(int x, int y);
+
         char getLayout1();
-        char getLayout2();
-        char getLayout3();
         char getScore();
         void setScore(int score);
         void setLayout1();
-        void setLayout2();
-        void setLayout3();
         void DisplayScore(int score);
 
 };
