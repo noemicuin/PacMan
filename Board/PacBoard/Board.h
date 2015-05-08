@@ -4,8 +4,6 @@
 // ********************************************************
 // FileName: Board.h
 //
-// Summary: This file includes the implementation for the ----- class (defined
-// in ---.h).
 //
 // Author: Salvador Ramirez
 // Last Modified
@@ -22,15 +20,22 @@ class Board
     private:
         char Layout1[22][31];
         int score;
+        int life;
     public:
         Board();
-        char getPosition(int x, int y);
-
+        char getPosition(int x, int y);//return the character in the position given
         char getLayout1();
-        char getScore();
+        int getScore();
+        int getLife();
+        void setLife(int life);
         void setScore(int score);
-        void setLayout1();
-        void DisplayScore(int score);
+        void setLayout1();// sets the pacman map
+
+        void placeGhost(int x, int y);// places ghost on map based on x and y coordinates
+
+
+        void DisplayCounters();// This displays the score and lives
+
 
 };
 
