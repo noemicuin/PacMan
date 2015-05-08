@@ -15,8 +15,7 @@ using namespace std;
 class PacMan
 {
     private:
-        char pacman; //This character will be how we distinguish paacman.
-        //char curr_tile[][];  // We need to keep track of what tile we are currently on.
+        char pacman; //This character will be how we distinguish paacman..
         int rowX; //Row we are at.
         int colY; //Col we are currently at.
         int life; //How many lifes we have.
@@ -52,7 +51,7 @@ class PacMan
         void moveRight();
         // Summary:
         // PreCondition:
-        bool isAttacked();
+        bool isAttacked(Ghost ghost);
         // Summary: If pacman gets attacked we will lower the life variable.
         // pre Condition: If pacman gets attacked and he has 1 life we will call the hasLost() function.
         void eatEnemy();
@@ -60,7 +59,6 @@ class PacMan
         // pre-Condition: If pacman gets close to a blue ghost the ghost will go back to the center.
         //                but if the ghost is not blue then we will remove a life and if pacman has no more lifes
         //                we call the has lost function.
-
         bool hasWon();
         // Summary: PacMan wins if he eats all the dots.
         // Pre Condition: If Pacman wins we will call the didWin function!
