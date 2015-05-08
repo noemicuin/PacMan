@@ -19,7 +19,9 @@ int main()
 {
     Board board;
     board.getLayout1();
+
     board.setLayout1();
+    board.placeGhost(0,5);
 
     for(int i = 0; i < 22; i++)
     {
@@ -29,6 +31,9 @@ int main()
         }
         cout << endl;
     }
+    //board.setScore(0);
+    //board.getScore();
+    board.DisplayCounters();
 
 
 
