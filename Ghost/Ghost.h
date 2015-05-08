@@ -8,16 +8,18 @@
 //
 //*********************************
 //
-
+#include "Board.h"
 class Ghost
 {
     private:
-
+        Board grid;
         int x_coordinate;
         int y_coordinate;
         bool canLeaveRoom;
+
     public:
 
+        static bool isInDanger;
         Ghost();
         void setPosition(int x, int y);
         //
@@ -26,18 +28,24 @@ class Ghost
         //postconditions: The ghost objects x and y coordinates will have changed
         //
         bool canLeaveBox() const {return canLeaveRoom;}
-        void MoveLeft();
 
-        void MoveRight();
+        bool MoveLeft();
 
-        void MoveUp();
+        bool MoveRight();
 
-        void MoveDown();
+        bool MoveUp();
 
-        bool HitWall();
+        bool MoveDown();
+
+        int getXPosition() const {return x_coordinate;}
+        int getYPosition() const {return y_coordinate;}
+
         //
         //Precondition: This will check to make sure the ghost can move in a given direction
         //Summary: This function will return a bool value as to whether it can move in a direction
+        //PostCondition:
+
+        void CalculatePath();
 
 };
 #endif // GHOST_H_INCLUDED
