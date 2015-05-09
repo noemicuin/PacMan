@@ -8,7 +8,7 @@
 #include <iostream>
 #include "Ghost.h"
 #include "Board.h"
-
+#include "PacMan.h"
 using namespace std;
 
 bool Ghost::isInDanger = false;
@@ -69,7 +69,7 @@ bool Ghost::MoveRight()
     return false;
 }
 
-void Ghost::CalculatePath()
+void Ghost::CalculatePath(PacMan pacman)
 {
 
 }

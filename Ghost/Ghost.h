@@ -9,6 +9,9 @@
 //*********************************
 //
 #include "Board.h"
+#include "PacMan.h"
+class PacMan;
+
 class Ghost
 {
     private:
@@ -45,7 +48,7 @@ class Ghost
         //Summary: This function will return a bool value as to whether it can move in a direction
         //PostCondition:
 
-        void CalculatePath();
+        void CalculatePath(PacMan p);
 
 };
 #endif // GHOST_H_INCLUDED
