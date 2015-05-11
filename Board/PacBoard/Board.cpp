@@ -22,6 +22,11 @@ Board::Board()
             Layout1[i][j] = '#';
     }
 }
+void Board::setPosition(int x, int y)
+{
+    if(Layout1[x][y] == '.')
+        Layout1[x][y] = ' ';
+}
 char Board::getPosition(int x, int y)
 {
     return Layout1[x][y];

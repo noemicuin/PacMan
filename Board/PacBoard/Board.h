@@ -23,10 +23,12 @@ class Board
         int life;
     public:
         Board();
+
         char getPosition(int x, int y);//return the character in the position given
         char getLayout1();
         int getScore();
         int getLife();
+        void setPosition(int x, int y);
         void setLife(int life);
         void setScore(int score);
         void setLayout1();// sets the pacman map
