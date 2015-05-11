@@ -79,13 +79,13 @@ int main()
                                     Map[y][x] = '.';
                                     y += 1;
                                     Map[y2][x] = '@';
-                                }
+                                }break;
                                 case ' ':
                                 {
                                     Map[y][x] = ' ';
                                     y += 1;
                                     Map[y2][x] = '@';
-                                }
+                                }break;
                            }
                         }
 
@@ -99,13 +99,13 @@ int main()
                                     Map[y][x] = '.';
                                     x += 1;
                                     Map[y][x2] = '@';
-                                }
+                                }break;
                                 case ' ':
                                 {
                                     Map[y][x] = ' ';
                                     x += 1;
                                     Map[y][x2] = '@';
-                                }
+                                }break;
                             }
                         }
 
@@ -119,13 +119,13 @@ int main()
                                     Map[y][x] = '.';
                                     x -=1;
                                     Map[y][x2] = '@';
-                                }
+                                }break;
                                 case ' ':
                                 {
                                     Map[y][x] = ' ';
                                     x -=1;
                                     Map[y][x2] = '@';
-                                }
+                                }break;
                             }
                         }
                     }break;
