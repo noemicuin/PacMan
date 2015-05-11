@@ -7,12 +7,19 @@
 
 #include <iostream>
 #include "Ghost.h"
-
+#include "Board.h"
+#include "PacMan.h"
 using namespace std;
+
+bool Ghost::isInDanger = false;
 
 Ghost::Ghost()
 {
     //position will be determined by the dimensions of the map
+    x_coordinate = 13; //will change
+    y_coordinate = 13; //will change
+    canLeaveRoom = false;
+    isInDanger = false;
 
 }
 
@@ -22,39 +29,49 @@ void Ghost::setPosition(int x_coordinate, int y_coordinate)
     this->y_coordinate = y_coordinate;
 }
 
-void Ghost::MoveDown()
+bool Ghost::MoveDown()
 {
-    if(y_coordinate + 1 != wall)
+    if( grid.getPosition(x_coordinate, y_coordinate + 1) != '#' && y_coordinate < 30)
     {
         y_coordinate++;
+        return true;
     }
-    setPosition(x_coordinate, y_coordinate);
-
+    return false;
 }
 
-void Ghost::MoveUp()
+bool Ghost::MoveUp()
 {
-    if(y_coordinate - 1 != wall)
+    if( grid.getPosition(x_coordinate, y_coordinate - 1) != '#' && y_coordinate > 0)
     {
         y_coordinate--;
+        return true;
     }
-
+    return false;
 }
 
-void Ghost::MoveLeft()
+bool Ghost::MoveLeft()
 {
-    if(x_coordinate - 1 != wall)
+    if(grid.getPosition(x_coordinate - 1, y_coordinate) != '#' && x_coordinate > 0)
     {
         x_coordinate--;
+        return true;
     }
+    return false;
 }
 
-void Ghost::MoveRight()
+bool Ghost::MoveRight()
 {
-    if(x_coordinate + 1 != wall)
+    if(grid.getPosition(x_coordinate + 1, y_coordinate) != '#' && x_coordinate < 31)
     {
         x_coordinate++;
+        return true;
     }
+    return false;
+}
+
+void Ghost::CalculatePath(PacMan pacman)
+{
+
 }
 
 
