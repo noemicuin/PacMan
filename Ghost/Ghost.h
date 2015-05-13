@@ -8,8 +8,8 @@
 //
 //*********************************
 //
-#include "Board.h"
-#include "PacMan.h"
+#include "BoardTest.h"
+//#include "PacMan.h"
 class PacMan;
 
 class Ghost

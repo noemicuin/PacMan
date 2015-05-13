@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1431538047 source:c:\users\sal\desktop\githubfolder\pacman\ghost\boarddriver.cpp
+	"BoardTest.h"
+	<iostream>
+
+1431538047 c:\users\sal\desktop\githubfolder\pacman\ghost\boardtest.h
+
+1431538047 source:c:\users\sal\desktop\githubfolder\pacman\ghost\boardtest.cpp
+	"BoardTest.h"
+
