@@ -31,9 +31,12 @@ int main()
         }
         cout << endl;
     }
+
     //board.setScore(0);
     //board.getScore();
     board.DisplayCounters();
+
+    return 0;
 
 
 
