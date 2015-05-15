@@ -21,20 +21,28 @@ Ghost::Ghost()
     symbolOnGrid = ' ';
     previous_x = 0;
     previous_y = 0;
+
+    startingx = x_coordinate;
+    startingy = y_coordinate;
+
     for(int i = 0; i < 4; i++)
        directions[i] = false;
 }
+
 Ghost::Ghost(int x, int y)
 {
    this->x_coordinate = x;
    this->y_coordinate = y;
    symbol = 'G';
+
    previous_x = 0;
    previous_y = 0;
+
+   startingx = x_coordinate;
+   startingy = y_coordinate;
+
    for(int i = 0; i < 4; i++)
-   {
        directions[i] = false;
-   }
 }
 void Ghost::setPosition(int x_coordinate, int y_coordinate)
 {
@@ -63,20 +71,18 @@ void Ghost::differentRoutes(Board& grid)
         directions[3] = true;
     else
         directions[3] = false;
-
-
 }
 
 void Ghost::CalculatePath(PacMan& pacman, Board& grid)
 {
     double shortest_length, temp_length;
     shortest_length = 50;
-    int temp_x_coordinate = x_coordinate;   //used to calculate the distance within the grid
+    int temp_x_coordinate = x_coordinate;   //used to calculate the distance between pacman and ghost
     int temp_y_coordinate = y_coordinate;   //used to calculate the distance between pacman and ghost
     previous_x = x_coordinate;
     previous_y = y_coordinate;  //this get the past coordinate before it is changed in the for loop
-    int best_x_coordinate = 0;  //set to default values
-    int best_y_coordinate = 0;
+    int best_x_coordinate = 0;  //set the default values
+    int best_y_coordinate = 0;  //set the default values
 
     for(int i = 0; i < 4; i++)
     {
@@ -126,9 +132,7 @@ void Ghost::CalculatePath(PacMan& pacman, Board& grid)
                     best_x_coordinate = x_coordinate - 1;
                     best_y_coordinate = y_coordinate;
                 }
-
             }
-
         }
         temp_x_coordinate = x_coordinate;
         temp_y_coordinate = y_coordinate;
@@ -136,18 +140,17 @@ void Ghost::CalculatePath(PacMan& pacman, Board& grid)
     x_coordinate = best_x_coordinate;
     y_coordinate = best_y_coordinate;
     symbolOnGrid = grid.getLayout1(x_coordinate, y_coordinate);
-    if(symbolOnGrid == pacman.getPacman())
-        symbolOnGrid = '.';
-
-
+    if(symbolOnGrid == pacman.getPacman() || symbolOnGrid == symbol)
+        symbolOnGrid = ' ';
 }
 
 void Ghost::setGhost(Board& grid)
 {
     grid.setPosition(x_coordinate, y_coordinate, symbol);
     grid.setPosition(previous_x, previous_y, symbolOnGrid);
-
 }
-
-
-
+void Ghost::reset(Board& grid)
+{
+    grid.setPosition(x_coordinate, y_coordinate, ' ');
+    grid.setPosition(startingx, startingy, symbol);
+}

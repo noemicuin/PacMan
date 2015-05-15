@@ -19,8 +19,8 @@ class Board
         int score;
 
     public:
-        int life;
         Board();
+<<<<<<< HEAD
 
         string getPosition(int x);//return the character in the position given
         char getLayout1(int x, int y);
@@ -38,6 +38,13 @@ class Board
         void placeGhost(int x, int y);// places ghost on map based on x and y coordinates
 
 
+=======
+        void setPosition(int x, int y, char symbol);
+        char getLayout1(int x, int y);
+        int getScore();
+        void setScore(int score);
+        void MakeLayout1();// sets the pacman map
+>>>>>>> db986f811bf407ad565670dfc7da0ae9878e8eb6
         void DisplayCounters();// This displays the score and lives
 
 
