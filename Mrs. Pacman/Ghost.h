@@ -18,12 +18,13 @@ class Ghost
     private:
         int x_coordinate;
         int y_coordinate;
+        int startingx;
+        int startingy;
         int previous_x;
         int previous_y;
         bool directions[4];
         bool previousDirection[4];
         char symbol, symbolOnGrid;
-        //bool canLeaveRoom;
 
     public:
 
@@ -37,6 +38,8 @@ class Ghost
 
         int getXCoordinate() const {return x_coordinate;}
         int getYCoordinate() const {return y_coordinate;}
+
+        void reset(Board& grid);
 
 };
 #endif // GHOST_H_INCLUDED

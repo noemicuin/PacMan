@@ -14,15 +14,16 @@
 using namespace std;
 
 class Board;
+class Ghost;
 
 class PacMan
 {
     private:
         char pacman;
+        int startingx, startingy;
         int rowX;
         int colY;
-        int pellets;
-        bool hasLost;
+        int lives;
     public:
         //Constructors:
         PacMan();
@@ -38,14 +39,14 @@ class PacMan
         void setPacman(char pacman);
         void setRowX(int rowX);
         void setColY(int colY);
-
-        bool isAttacked();
+        void reset(Board& grid);
+        bool isAttacked(Ghost& ghost);
         // Summary: If pac man gets attacked we will lower the life variable.
         // Pre-Condition: If pac man gets attacked and he has 1 life we will call the hasLost() function.
-        bool hasLostGame(Board& grid);
+        bool hasLostGame();
         // Summary: This function will return false if Pac man lost or true if pac man Won.
         // Pre-Condition: We have to check that the life = 0 and that pacman did not get all the dots.
-        bool hasWon(Board& grid);
+        bool hasWon();
         // Summary: Pac Man wins if he eats all the dots and has more than 0 life.
         // Pre-Condition: Check that all the dots are gone and check that pac man still has at least 1 life left.
         void isDot(Board& board);
