@@ -6,8 +6,6 @@
 //
 // Author: Salvador Ramirez
 // Last Modified
-//
-//
 // *******************************************************
 #include "Board.h"
 using namespace std;
@@ -31,18 +29,22 @@ int Board::getScore()
 {
     return score;
 }
+
 int Board::getLife()
 {
     return life;
 }
+
 void Board::setScore(int score)
 {
     this->score = score;
 }
+
 void Board::setLife(int life)
 {
     this->life = life;
 }
+
 char Board::getLayout1(int x, int y)
 {
     return Layout1[x][y];
@@ -85,6 +87,7 @@ void Board::setLayout1()
     }
 
 }
+
 void Board::DisplayCounters()
 {
     cout << "Score: " << score << endl;

@@ -3,12 +3,8 @@
 
 // ********************************************************
 // FileName: Board.h
-//
-//
 // Author: Salvador Ramirez
-// Last Modified
-//
-//
+// Last Modified: 5/14/15
 // *******************************************************
 
 
@@ -27,14 +23,16 @@ class Board
         Board();
 
         string getPosition(int x);//return the character in the position given
-        void setPosition(int x, int y, char symbol);
         char getLayout1(int x, int y);
         int getScore();
         int getLife();
 
+        void setPosition(int x, int y, char symbol);
         void setLife(int life);
         void setScore(int score);
-        void setLayout1();// sets the pacman map
+        void setLayout1();// sets the pac man map
+
+
 
 
         void placeGhost(int x, int y);// places ghost on map based on x and y coordinates
