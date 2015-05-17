@@ -40,6 +40,12 @@ class PacMan
         void setRowX(int rowX);
         void setColY(int colY);
         void reset(Board& grid);
+
+        void moveUp(Board& grid);
+        void moveDown(Board& grid);
+        void moveRight(Board& grid);
+        void moveLeft(Board& grid);
+
         bool isAttacked(Ghost& ghost);
         // Summary: If pac man gets attacked we will lower the life variable.
         // Pre-Condition: If pac man gets attacked and he has 1 life we will call the hasLost() function.
@@ -53,7 +59,7 @@ class PacMan
         // Summary: If the character has a . then it is a dot and will increase there points.
         // Pre-Condition: Before it moves it will check if the next movement contains a dot if it does then
         //                the point variable will increase.
-
+        int getLives() const {return lives;}
         void setPacmanLocation(Board& grid);
 };
 #endif // PACMAN_H_INCLUDED

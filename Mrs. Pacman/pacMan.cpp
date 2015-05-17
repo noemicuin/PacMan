@@ -28,8 +28,69 @@ PacMan::PacMan(int x, int y)
     startingx = rowX;
     startingy = colY;
     pacman = 'c';
+    lives = 3;
 }
 //Setters *******************************************************************************************************************
+void PacMan::moveUp(Board& grid)
+{
+    if(colY - 1 > 0 && grid.getLayout1(rowX, colY -1) != '#')
+    {
+        grid.setPosition(rowX, colY, ' ');
+        colY--;
+    }
+    isDot(grid);
+    grid.setPosition(rowX, colY, pacman);
+}
+
+void PacMan::moveRight(Board& grid)
+{
+    if(rowX + 1 < 22 && grid.getLayout1(rowX + 1, colY) != '#')
+    {
+        grid.setPosition(rowX, colY, ' ');
+        rowX++;
+    }
+
+    if(rowX == 10 && colY == 31)
+    {
+        rowX = 10;
+        colY = 0;
+    }
+
+    isDot(grid);
+    grid.setPosition(rowX, colY, pacman);
+}
+
+void PacMan::moveDown(Board& grid)
+{
+    if(colY + 1 < 31 && grid.getLayout1(rowX, colY + 1) != '#')
+    {
+        grid.setPosition(rowX, colY, ' ');
+        colY++;
+
+    }
+    isDot(grid);
+
+    grid.setPosition(rowX, colY, pacman);
+}
+
+void PacMan::moveLeft(Board& grid)
+{
+    if(rowX - 1> 0 && grid.getLayout1(rowX - 1, colY) != '#')//Makes sure that before it moves to the left there is no barriers blocking it.
+    {
+
+        grid.setPosition(rowX, colY, ' ');//We set the previous one to an empty character since pacman eats everything.
+        rowX--;
+
+    }
+    if(rowX == 10 && colY == 0)
+    {
+        rowX = 10;
+        colY = 30;
+    }
+    grid.setPosition(rowX, colY, pacman);
+    isDot(grid);
+
+}
 void PacMan::setPacman(char pacman)
 {
     this->pacman = pacman;
@@ -76,10 +137,12 @@ bool PacMan::isAttacked(Ghost& ghost)
     return false;
 }
 
-void PacMan::reset( Board& grid)
+void PacMan::reset(Board& grid)
 {
     grid.setPosition(rowX, colY, ' ');
     grid.setPosition(startingx, startingy, pacman);
+    rowX = startingx;
+    colY = startingy;
 }
 
 void PacMan::isDot(Board& board)
